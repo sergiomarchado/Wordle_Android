@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="-10"
+    android:toXDelta="10"
+    android:duration="100"
+    android:repeatCount="3"
+    android:repeatMode="reverse" />
+
+    <!--
+        Animación de tipo "shake" (sacudida lateral).
+        Se utiliza para dar retroalimentación negativa, como en caso de error.
+
+        - Mueve la vista 10 píxeles a la derecha y luego a la izquierda.
+        - Se repite 3 veces.
+        - Duración de cada sacudida: 100 milisegundos.
+    -->

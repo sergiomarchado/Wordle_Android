@@ -1,0 +1,17 @@
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="500"
+    android:fromYDelta="0"
+    android:toYDelta="-30"
+    android:repeatCount="infinite"
+    android:repeatMode="reverse"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+
+    <!--
+        Animación de traslación vertical que crea un efecto de salto suave.
+        Ideal para aplicarlo sobre el logo.
+
+        - Sube 30 píxeles hacia arriba (toYDelta negativo).
+        - Repite indefinidamente.
+        - Se mueve hacia adelante y hacia atrás (modo "reverse").
+        - Utiliza interpolador para dar suavidad a la aceleración/desaceleración.
+    -->

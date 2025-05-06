@@ -1,35 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollViewGame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameFragment">
+    android:fillViewport="true"
+    android:background="@drawable/background_anim">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Contenedor principal de la pantalla del juego -->
+    <LinearLayout
+        android:id="@+id/gameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-        <Button
-            android:id="@+id/button_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/previous"
-            app:layout_constraintBottom_toTopOf="@id/textview_second"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Imagen del logo Wordle en la cabecera -->
+        <ImageView
+            android:id="@+id/imgGameLogo"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logowordle"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
+            android:contentDescription="@string/app_name" />
 
+        <!-- Texto de bienvenida con el nombre del jugador -->
         <TextView
-            android:id="@+id/textview_second"
+            android:id="@+id/tvPlayerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_second" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+            android:text="¡Hola jugador!"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Área para mostrar la pista de la palabra -->
+        <TextView
+            android:id="@+id/tvHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#CCCCCC"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Primera fila de campos para letras -->
+        <LinearLayout
+            android:id="@+id/row1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <include layout="@layout/wordle_letter_row" />
+        </LinearLayout>
+
+        <!-- Segunda fila -->
+        <LinearLayout
+            android:id="@+id/row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <include layout="@layout/wordle_letter_row" />
+        </LinearLayout>
+
+        <!-- Tercera fila -->
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <include layout="@layout/wordle_letter_row" />
+        </LinearLayout>
+
+        <!-- Cuarta fila -->
+        <LinearLayout
+            android:id="@+id/row4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <include layout="@layout/wordle_letter_row" />
+        </LinearLayout>
+
+        <!-- Quinta y última fila -->
+        <LinearLayout
+            android:id="@+id/row5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+            <include layout="@layout/wordle_letter_row" />
+        </LinearLayout>
+
+        <!-- Texto que muestra la cantidad de intentos restantes -->
+        <TextView
+            android:id="@+id/tvRemainingAttempts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intentos restantes: 5"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Botón para validar la palabra introducida -->
+        <Button
+            android:id="@+id/btnValidate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_validate"
+            android:padding="12dp"
+            android:backgroundTint="#339b07"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
+
+        <!-- Botón para reiniciar la partida -->
+        <Button
+            android:id="@+id/btnRestart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_restart"
+            android:padding="12dp"
+            android:backgroundTint="#FFC107"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</ScrollView>

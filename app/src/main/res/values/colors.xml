@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bg_color1">#1E88E5</color> <!-- Azul -->
+    <color name="bg_color2">#43A047</color> <!-- Verde -->
+    <color name="bg_color3">#8E24AA</color> <!-- Púrpura -->
 </resources>

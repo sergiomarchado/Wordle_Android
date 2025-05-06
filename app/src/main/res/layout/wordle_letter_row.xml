@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Este archivo define una fila reutilizable de 5 EditText,
+        utilizada para introducir letras en el juego tipo Wordle.
+        Se incluye en las filas del layout principal mediante <include/>.
+        Cada campo permite una sola letra en mayúscula.
+    -->
+
+    <!-- Primera letra -->
+    <EditText
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:background="@android:drawable/editbox_background"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <!-- Segunda letra -->
+    <EditText
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:background="@android:drawable/editbox_background"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <!-- Tercera letra -->
+    <EditText
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:background="@android:drawable/editbox_background"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <!-- Cuarta letra -->
+    <EditText
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:background="@android:drawable/editbox_background"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+    <!-- Quinta letra -->
+    <EditText
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:background="@android:drawable/editbox_background"
+        android:textSize="18sp"
+        android:textColor="#000000" />
+
+</merge>

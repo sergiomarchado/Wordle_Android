@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Wordle</string>
+
+    <!-- Welcome Fragment -->
+    <string name="hint_username">Enter your name</string>
+    <string name="button_start">Start Game</string>
+    <string name="snackbar_empty_name">Please enter a name</string>
+    <string name="language_spanish">Spanish</string>
+    <string name="language_english">English</string>
+    <string name="first_fragment_label">Home</string>
+    <string name="second_fragment_label">Game</string>
+
+    <!-- Game Fragment -->
+    <string name="button_validate">Validate</string>
+    <string name="button_restart">Restart</string>
+    <string name="congratulations_message">Congratulations %1$s, you guessed the secret word!</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="saludo_jugador">Hello, %1$s!</string>
+    <string name="pista_formato">Hint: %1$s</string>
+    <string name="intentos_restantes">Remaining attempts: %1$d</string>
+    <string name="error_letras_incompletas">Fill in all letters</string>
+
+    <!-- Hints -->
+    <string name="hint_plant">something green you water</string>
+    <string name="hint_house">a place to live</string>
+    <string name="hint_water">a clear liquid we drink</string>
+    <string name="hint_floor">you walk on it</string>
+    <string name="hint_chair">used for sitting</string>
+    <string name="hint_fruit">edible and sweet plant product</string>
+    <string name="hint_ghost">a spooky spirit</string>
+    <string name="hint_mouse">small rodent or computer device</string>
+    <string name="hint_light">the opposite of dark</string>
+    <string name="hint_brain">you think with it</string>
+
+    <!-- Pistas -->
+    <string name="hint_perro">animal doméstico</string>
+    <string name="hint_casas">lugares donde vive la gente</string>
+    <string name="hint_raton">pequeño roedor</string>
+    <string name="hint_fuego">calor y llamas</string>
+    <string name="hint_plaza">espacio abierto en una ciudad</string>
+    <string name="hint_flota">grupo de barcos</string>
+    <string name="hint_torre">estructura alta</string>
+    <string name="hint_pulpo">animal marino con tentáculos</string>
+    <string name="hint_mover">cambiar de posición</string>
+    <string name="hint_salir">acción de irse o marcharse</string>
+
+    <string name="congratulations_title">You won!</string>
+    <string name="game_over_title">Game Over</string>
+    <string name="game_over_message">You ran out of attempts.</string>
+    <string name="exit_app">Exit</string>
+
+</resources>

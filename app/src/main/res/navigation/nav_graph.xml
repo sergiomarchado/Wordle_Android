@@ -13,8 +13,13 @@
 
         <action
             android:id="@+id/action_WelcomeFragment_to_GameFragment"
-            app:destination="@id/GameFragment" />
+            app:destination="@id/GameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/GameFragment"
         android:name="com.example.ejercicioexamenwordle.GameFragment"
@@ -23,6 +28,10 @@
 
         <action
             android:id="@+id/action_GameFragment_to_WelcomeFragment"
-            app:destination="@id/WelcomeFragment" />
+            app:destination="@id/WelcomeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 </navigation>

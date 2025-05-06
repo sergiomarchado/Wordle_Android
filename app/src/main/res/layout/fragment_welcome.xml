@@ -1,35 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/welcomeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeFragment">
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:background="@drawable/background_anim">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Imagen de cabecera con el logo animado de Wordle -->
+    <ImageView
+        android:id="@+id/imgGameLogo"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logowordle"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/app_name" />
+
+    <!-- Campo para introducir el nombre del jugador -->
+    <EditText
+        android:id="@+id/etUsername"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_username"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background" />
 
-        <Button
-            android:id="@+id/button_first"
+    <!-- Etiqueta para el selector de idioma -->
+    <TextView
+        android:id="@+id/tvSelectLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idioma / Language"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Selector de idioma (ES o EN) -->
+    <RadioGroup
+        android:id="@+id/radioGroupLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp">
+
+        <!-- Opción: Español -->
+        <RadioButton
+            android:id="@+id/rbSpanish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"
-            app:layout_constraintBottom_toTopOf="@id/textview_first"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/language_spanish"
+            android:textColor="#FFFFFF"
+            android:checked="true" />
 
-        <TextView
-            android:id="@+id/textview_first"
+        <!-- Opción: Inglés -->
+        <RadioButton
+            android:id="@+id/rbEnglish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_first" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+            android:text="@string/language_english"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="16dp" />
+    </RadioGroup>
+
+    <!-- Botón para comenzar la partida -->
+    <Button
+        android:id="@+id/btnStartGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_start"
+        android:padding="12dp"
+        android:backgroundTint="#FFC107"
+        android:textColor="#000000"
+        android:textAllCaps="false" />
+
+</LinearLayout>
