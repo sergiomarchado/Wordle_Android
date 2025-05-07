@@ -60,21 +60,7 @@ com.example.ejercicioexamenwordle/
 │ └── xml/ # Configuración de backups
 └── AndroidManifest.xml # Declaración de actividad y configuración general
 
-yaml
-Copiar
-Editar
-
 ---
-
-## ⚙️ Requisitos y ejecución
-
-1. Clona este repositorio:
-
-   ```bash
-   git clone https://github.com/tu_usuario/EjercicioExamenWordle.git
-Ábrelo en Android Studio (preferiblemente Chipmunk o superior).
-
-Conecta un dispositivo/emulador y pulsa Run ▶️.
 
 🎓 Información académica
 Asignatura: Programación Multimedia y Dispositivos Móviles (PMDM)
