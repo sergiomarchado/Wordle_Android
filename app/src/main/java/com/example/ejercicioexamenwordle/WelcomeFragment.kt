@@ -26,7 +26,7 @@ class WelcomeFragment : Fragment() {
     private val gameViewModel: GameViewModel by activityViewModels()
 
     // Variable que almacena el idioma actualmente seleccionado
-    private var idiomaSeleccionadoAnterior: String = "en"
+    private var idiomaSeleccionadoAnterior: String = "es"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +47,11 @@ class WelcomeFragment : Fragment() {
 
         // Marcar el idioma guardado previamente
         marcarIdiomaActual()
+
+        // Restaurar nombre de usuario tras rotación
+        savedInstanceState?.getString("username")?.let {
+            binding.etUsername.setText(it)
+        }
 
         // Cambio de idioma mediante RadioButtons
         binding.radioGroupLanguage.setOnCheckedChangeListener { _, checkedId ->
@@ -88,7 +93,19 @@ class WelcomeFragment : Fragment() {
     }
 
     /**
-     * Inicia la animación del fondo del layout si es de tipo AnimationDrawable.
+     * Guarda el texto del campo de nombre para restaurarlo si se rota la pantalla
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        // Solo acceder al binding si la vista aún está viva
+        _binding?.let {
+            outState.putString("username", it.etUsername.text.toString())
+        }
+    }
+
+    /**
+     * Inicia la animación del fondo.
      */
     private fun iniciarAnimacionFondo() {
         val layout = binding.welcomeLayout

@@ -3,6 +3,7 @@ package com.example.ejercicioexamenwordle
 import android.app.AlertDialog
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -73,9 +74,75 @@ class GameFragment : Fragment() {
         mostrarPista()
         actualizarIntentosRestantes()
 
+        // Restaurar letras si hay estado guardado (más seguro)
+        savedInstanceState?.let { state ->
+            // Restauramos el índice actual de fila e indicamos si el juego ya había terminado
+            currentRowIndex = state.getInt("currentRowIndex", 0)
+            juegoTerminado = state.getBoolean("juegoTerminado", false)
+
+            // Recorremos las 5 filas del tablero
+            for (i in 1..5) {
+                // Obtenemos la referencia a la fila por su ID generado dinámicamente
+                val rowId = resources.getIdentifier("row$i", "id", requireContext().packageName)
+                val rowLayout = binding.root.findViewById<LinearLayout>(rowId) ?: continue
+
+                // Para cada casilla de la fila (5 por fila)
+                for (j in 0 until rowLayout.childCount) {
+                    val editText = rowLayout.getChildAt(j) as? EditText ?: continue
+
+                    // Restauramos el texto escrito por el usuario
+                    val letra = state.getString("letra_${i}_$j", "")
+                    editText.setText(letra)
+
+                    // Restauramos el color de fondo de la casilla, si se había guardado uno
+                    val color = state.getInt("color_${i}_$j", -1)
+                    if (color != -1) editText.setBackgroundColor(color)
+
+                    // Restauramos si la casilla estaba activa o desactivada
+                    val enabled = state.getBoolean("enabled_${i}_$j", true)
+                    editText.isEnabled = enabled
+                }
+            }
+        }
+
         // Botones
         binding.btnValidate.setOnClickListener { validarIntento() }
         binding.btnRestart.setOnClickListener { reiniciarJuego() }
+    }
+
+    /**
+     * Guarda el estado del juego actual en caso de que el fragmento sea destruido y recreado
+     * (girar la pantalla).
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Guardamos el índice de la fila actual (de 0 a 4) para continuar en el mismo intento tras rotar
+        outState.putInt("currentRowIndex", currentRowIndex)
+        // Guardamos si el juego ya ha terminado para evitar que se siga jugando tras recrear la vista
+        outState.putBoolean("juegoTerminado", juegoTerminado)
+
+        // Recorremos las 5 filas del tablero (row1 a row5)
+        for (i in 1..5) {
+            // Obtenemos el ID de la fila dinámicamente
+            val rowId = resources.getIdentifier("row$i", "id", requireContext().packageName)
+            val rowLayout = view?.findViewById<LinearLayout>(rowId) ?: continue
+
+            // Para cada una de las 5 casillas (EditText) de la fila
+            for (j in 0 until rowLayout.childCount) {
+                val editText = rowLayout.getChildAt(j) as EditText
+
+                // Guardamos el texto ingresado por el usuario en esa casilla
+                outState.putString("letra_${i}_$j", editText.text.toString())
+                // Guardamos si la casilla estaba habilitada o no
+                outState.putBoolean("enabled_${i}_$j", editText.isEnabled)
+
+                // Guardamos el color de fondo actual
+                val background = (editText.background as? ColorDrawable)?.color
+                if (background != null) {
+                    outState.putInt("color_${i}_$j", background)
+                }
+            }
+        }
     }
 
     /**

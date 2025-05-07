@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollViewGame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/background_anim">
+
+    <!-- Contenedor horizontal principal -->
+    <LinearLayout
+        android:id="@+id/gameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Columna izquierda: Logo, bienvenida, pista, intentos y botones -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginEnd="24dp">
+
+            <!-- Logo de Wordle -->
+            <ImageView
+                android:id="@+id/imgGameLogo"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_margin="12dp"
+                android:src="@drawable/logowordle"
+                android:contentDescription="@string/app_name" />
+
+            <!-- Nombre del jugador -->
+            <TextView
+                android:id="@+id/tvPlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/saludo_jugador"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Pista -->
+            <TextView
+                android:id="@+id/tvHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#CCCCCC"
+                android:textSize="16sp"
+                android:layout_marginBottom="18dp" />
+
+            <!-- Intentos restantes -->
+            <TextView
+                android:id="@+id/tvRemainingAttempts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/intentos_restantes"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Botón Validar -->
+            <Button
+                android:id="@+id/btnValidate"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_validate"
+                android:padding="12dp"
+                android:backgroundTint="#339b07"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Botón Reiniciar -->
+            <Button
+                android:id="@+id/btnRestart"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_restart"
+                android:padding="12dp"
+                android:backgroundTint="#FFC107"
+                android:textColor="#000000"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- Columna derecha: Tablero con las filas -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Fila 1 -->
+            <LinearLayout
+                android:id="@+id/row1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <include layout="@layout/wordle_letter_row" />
+            </LinearLayout>
+
+            <!-- Fila 2 -->
+            <LinearLayout
+                android:id="@+id/row2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <include layout="@layout/wordle_letter_row" />
+            </LinearLayout>
+
+            <!-- Fila 3 -->
+            <LinearLayout
+                android:id="@+id/row3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <include layout="@layout/wordle_letter_row" />
+            </LinearLayout>
+
+            <!-- Fila 4 -->
+            <LinearLayout
+                android:id="@+id/row4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <include layout="@layout/wordle_letter_row" />
+            </LinearLayout>
+
+            <!-- Fila 5 -->
+            <LinearLayout
+                android:id="@+id/row5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <include layout="@layout/wordle_letter_row" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
