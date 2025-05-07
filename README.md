@@ -1,81 +1,87 @@
-Wordle Multilingüe - EjercicioEntregaExamen (PMDM)
+# 🧩 Wordle Multilingüe — EjercicioEntregaExamen (PMDM)
 
-Este proyecto es el resultado del EjercicioEntregaExamen de la asignatura Programación Multimedia y Dispositivos Móviles (PMDM) del ciclo Desarrollo de Aplicaciones Multiplataforma (DAM).Se trata de una versión Android del popular juego Wordle, desarrollada con Kotlin y Android Jetpack.
+Este proyecto forma parte del **EjercicioEntregaExamen** de la asignatura **Programación Multimedia y Dispositivos Móviles (PMDM)** del ciclo **Desarrollo de Aplicaciones Multiplataforma (DAM)**.  
+Se trata de una versión Android del popular juego **Wordle**, desarrollada con **Kotlin**, **ViewModel**, **ViewBinding**, **Navigation Component** y otras herramientas de Jetpack.
 
-🧠 ¿En qué consiste el juego?
+---
 
-Wordle es un juego de adivinanzas en el que debes acertar una palabra secreta de 5 letras en un máximo de 5 intentos.Después de cada intento, cada letra recibe un color que indica:
+## 🎮 ¿En qué consiste el juego?
 
-🟩 Verde: letra y posición correctas.
+**Wordle** es un juego de adivinanzas donde debes descubrir una palabra secreta de 5 letras en un máximo de 5 intentos.  
+Después de cada intento, las letras se colorean indicando su acierto:
 
-🟧 Naranja: letra en la palabra pero posición incorrecta.
+- 🟩 **Verde**: letra correcta en posición correcta.  
+- 🟧 **Naranja**: letra correcta en posición incorrecta.  
+- ⬜ **Gris**: letra incorrecta.
 
-⬜ Gris: la letra no está en la palabra.
+---
 
-✨ Características implementadas
+## ✨ Características implementadas
 
-✅ Animaciones visuales en fondo, logo, validación y errores.
+- ✅ Animaciones visuales (fondo dinámico, validación, errores, logo).
+- ✅ Interfaz adaptativa para **modo horizontal y vertical**.
+- ✅ Conservación del estado tras rotación: letras, colores, intentos, habilitación.
+- ✅ **Multilenguaje**: español 🇪🇸 e inglés 🇬🇧.
+- ✅ **Selector de idioma persistente** con `SharedPreferences`.
+- ✅ **Pistas contextuales** para cada palabra (según el idioma).
+- ✅ Diálogos de victoria / derrota con opción a **reiniciar** o **salir**.
+- ✅ Soporte para **ScrollView horizontal** en dispositivos pequeños.
+- ✅ Arquitectura limpia: `ViewModel`, `Fragment`, `Navigation`.
 
-✅ Interfaz adaptable a orientación horizontal/vertical.
+---
 
-✅ Conservación del estado al rotar pantalla: letras, colores, botones deshabilitados, intentos.
+## 🌍 Idiomas soportados
 
-✅ Soporte multilingüe: Español 🇪🇸 e Inglés 🇬🇧.
+| Idioma | Palabras y Pistas |
+|--------|-------------------|
+| 🇪🇸 Español | Lista de palabras y pistas en español. |
+| 🇬🇧 Inglés  | Lista alternativa y traducciones para cada palabra. |
 
-✅ Selector de idioma persistente con SharedPreferences.
+El idioma afecta tanto a la **UI textual** como a las **palabras utilizadas en el juego** y sus **pistas**.
 
-✅ Pistas únicas para cada palabra según idioma (como ayuda contextual).
+---
 
-✅ Diálogos de victoria/derrota con opciones de reiniciar o salir.
+## 📁 Estructura del proyecto
 
-✅ ScrollView en horizontal para pantallas pequeñas, por compatibilidad.
+com.example.ejercicioexamenwordle/
+├── MainActivity.kt # Activity principal con NavHost
+├── GameViewModel.kt # ViewModel con lógica del juego
+├── LocaleHelper.kt # Clase auxiliar para idioma persistente
+├── WelcomeFragment.kt # Fragmento de pantalla inicial
+├── GameFragment.kt # Fragmento principal del juego
+├── res/
+│ ├── layout/ # Layouts en orientación vertical
+│ ├── layout-land/ # Layouts horizontales adaptados
+│ ├── values/ # Strings, colores, temas (ES)
+│ ├── values-en/ # Strings y pistas en inglés
+│ ├── anim/ # Archivos de animación XML
+│ ├── drawable/ # Fondo animado, logos
+│ ├── navigation/ # Navigation Graph (NavHost)
+│ └── xml/ # Configuración de backups
+└── AndroidManifest.xml # Declaración de actividad y configuración general
 
-✅ Diseño modular y limpio usando ViewModel, ViewBinding, Fragments y Navigation.
+yaml
+Copiar
+Editar
 
-🌍 Idiomas soportados
+---
 
-🇪🇸 Español
+## ⚙️ Requisitos y ejecución
 
-🇬🇧 Inglés
+1. Clona este repositorio:
 
-Las palabras secretas y sus pistas están adaptadas al idioma seleccionado, de modo que el idioma también afecta al conjunto de palabras del juego.
+   ```bash
+   git clone https://github.com/tu_usuario/EjercicioExamenWordle.git
+Ábrelo en Android Studio (preferiblemente Chipmunk o superior).
 
-📂 Estructura del proyecto
-
-ᴿ com.example.ejercicioexamenwordle
- ├── MainActivity.kt              // Activity principal con NavHost
- ├── GameViewModel.kt            // ViewModel con lógica del juego
- ├── LocaleHelper.kt             // Utilidad para gestión de idiomas
- ├── WelcomeFragment.kt          // Fragmento de bienvenida
- ├── GameFragment.kt             // Fragmento principal del juego
- ├── res/
- │ ├── layout/                   // Layouts verticales
- │ ├── layout-land/              // Layouts horizontales adaptados
- │ ├── values/                   // Strings, temas, colores
- │ ├── values-en/                // Traducción al inglés
- │ ├── anim/                     // Animaciones XML (bounce, shake...)
- │ ├── drawable/                 // Fondo animado y logo
- │ ├── navigation/               // Navigation Graph (NavHost)
- │ └── xml/                      // Configuración de backup y datos
- └── AndroidManifest.xml         // Declaración del tema y actividad
-
-⚙️ Requisitos y ejecución
-
-Clona el repositorio:
-
-git clone https://github.com/tu_usuario/EjercicioExamenWordle.git
-
-Abre el proyecto en Android Studio.
-
-Ejecuta el proyecto en un emulador o dispositivo físico con Android.
+Conecta un dispositivo/emulador y pulsa Run ▶️.
 
 🎓 Información académica
-
 Asignatura: Programación Multimedia y Dispositivos Móviles (PMDM)
 
-Ciclo Formativo: Desarrollo de Aplicaciones Multiplataforma (DAM)
+Ciclo formativo: Desarrollo de Aplicaciones Multiplataforma (DAM)
 
-Curso: 2024–2025
+Curso: 2024 – 2025
 
 Autor: Sergio Marchado Ropero
 
