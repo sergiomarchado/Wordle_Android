@@ -1,4 +1,4 @@
-# 🧩 Wordle Multilingüe — EjercicioEntregaExamen (PMDM)
+# 🧩 Wordle Multilingüe con Android
 
 Este proyecto forma parte del **EjercicioEntregaExamen** de la asignatura **Programación Multimedia y Dispositivos Móviles (PMDM)** del ciclo **Desarrollo de Aplicaciones Multiplataforma (DAM)**.  
 Se trata de una versión Android del popular juego **Wordle**, desarrollada con **Kotlin**, **ViewModel**, **ViewBinding**, **Navigation Component** y otras herramientas de Jetpack.
